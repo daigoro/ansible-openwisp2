@@ -213,10 +213,10 @@
   until: result is success
   notify: reload supervisor
 
-- name: Install MySQL-python
+- name: Install PyMySQL
   when: openwisp2_database.engine in ["django.db.backends.mysql", "django.contrib.gis.db.backends.mysql"]
   pip:
-    name: MySQL-python
+    name: PyMySQL
     state: latest
     virtualenv: "{{ virtualenv_path }}"
     virtualenv_python: "{{ openwisp2_python }}"
